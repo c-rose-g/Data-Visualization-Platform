@@ -5,7 +5,7 @@ type AppProps = {
 function App({children}: AppProps) {
 
   return (
-    <main className="flex h-screen bg-[#0f0f0f] text-white">
+    <main className="flex h-screen">
       {/* add sidebarNav */}
       <div className="flex-1 overflow-y-auto">
         {children}

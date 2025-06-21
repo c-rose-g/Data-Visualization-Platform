@@ -1,12 +1,15 @@
-import React from 'react'
-
 type CaretButtonProps = {
   onClick?: () => void;
   className?: string;
 };
 
-export default function CaretButton() {
+export default function CaretButton({onClick, className = "" }: CaretButtonProps) {
   return (
-    <div>CaretButton</div>
+    <button type="button" onClick={onClick } className={`p-1 hover:bg-gray-700 rounded ${className}`} aria-label="Toggle details">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+</svg>
+
+    </button>
   )
 };

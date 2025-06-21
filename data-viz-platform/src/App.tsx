@@ -7,7 +7,7 @@ function App({children}: AppProps) {
   return (
     <main className="flex h-screen">
       {/* add sidebarNav */}
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1">
         {children}
       </div>
     </main>

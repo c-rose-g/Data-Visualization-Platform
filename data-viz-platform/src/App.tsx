@@ -8,7 +8,7 @@ type AppProps = {
 function App({children}: AppProps) {
 
   return (
-    <div className="flex">
+    <div className="flex h-screen">
       <SideBar />
       <div className="flex-1 flex flex-col">
         <TopNav />

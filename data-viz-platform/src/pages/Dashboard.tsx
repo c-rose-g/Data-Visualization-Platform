@@ -78,7 +78,7 @@ function Dashboard() {
               </div>
             </div>
             {/* Graph content section */}
-            <div id="card-wrapper" className="flex h-[502px] gap-4">
+            <div id="card-wrapper" className="flex h-[502px] gap-4 justify-between">
             <div className="w-[660px] bg-[#222324] rounded-md h-full flex border border-[#424242] shadow-[5px_3px_5px_1px_rgb(10,10,12,.35)]">
               <div className="">Graph Card Content</div>
             </div>

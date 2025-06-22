@@ -6,6 +6,7 @@ import CaretButton from '../components/CaretButton'
 function Dashboard() {
   const [showMessages, setShowMessages] = useState(true)
   const messages = ["The best found configuration based on profit is characterized by 11 zones (max) with charging stations and 48 total number of poles", "The best found configuration based on satisfied demand is characterized by 11 zones (max) with charging stations and 48 total number of poles."]
+  
   const handleRefresh = () =>{
     window.location.reload()
   }
@@ -13,9 +14,9 @@ function Dashboard() {
   const handleUpload = () =>{
     // upload logic
   }
+
   const handleMessages = () => {
     setShowMessages(((prev:boolean) => !prev))
-
   }
 
   return (
@@ -32,7 +33,7 @@ function Dashboard() {
           </svg>}
           </button>
           <button id="edit-variables-btn" className="font-roobert border bg-[#242424] border-[#5a5a5a] rounded-md shadow-[1px_1px_0_rbg(0,0,0)] shadow-black p-2 text-[12px]" type="button">Edit Variables</button>
-          <button id="upload-btn" className="border bg-[#242424] border-[#5a5a5a] rounded-md shadow-[1px_1px_0_rbg(0,0,0)] shadow-black p-2" type="button">{<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5 text-[#B9B9B9]">
+          <button id="upload-btn" onClick={handleUpload} className="border bg-[#242424] border-[#5a5a5a] rounded-md shadow-[1px_1px_0_rbg(0,0,0)] shadow-black p-2" type="button">{<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5 text-[#B9B9B9]">
           <path fillRule="evenodd" d="M11.47 2.47a.75.75 0 0 1 1.06 0l4.5 4.5a.75.75 0 0 1-1.06 1.06l-3.22-3.22V16.5a.75.75 0 0 1-1.5 0V4.81L8.03 8.03a.75.75 0 0 1-1.06-1.06l4.5-4.5ZM3 15.75a.75.75 0 0 1 .75.75v2.25a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V16.5a.75.75 0 0 1 1.5 0v2.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V16.5a.75.75 0 0 1 .75-.75Z" clipRule="evenodd" />
           </svg>}
           </button>

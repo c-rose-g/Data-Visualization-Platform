@@ -1,5 +1,5 @@
-import './App.css'
-import Sidebar from './components/layout.tsx/Sidebar';
+// import './App.css'
+import SideBar from './components/layout.tsx/Sidebar';
 import TopNav from './components/layout.tsx/TopNav';
 
 type AppProps = {
@@ -9,9 +9,9 @@ function App({children}: AppProps) {
 
   return (
     <div className="flex">
-      <Sidebar/>
+      <SideBar />
       <div className="flex-1 flex flex-col">
-        <TopNav/>
+        <TopNav />
         <main className="flex-1 overflow-auto">{children}</main>
       </div>
     </div>

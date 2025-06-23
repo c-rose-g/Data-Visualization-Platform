@@ -16,16 +16,21 @@ export default function Sidebar({collapsed}:SidebarProps) {
   };
 
   return (
-    <div className="mt-[80px] bg-[#0d0d0d] text-white w-20 pt-[30px] pb-[20px] pl-[24px] pr-[20px] flex justify-between flex-col">
+    <div className=" bg-[#0d0d0d] flex flex-col ">
+      <div className="mt-[80px] pl-[24px] pr-[20px] text-white w-20 gap-8 flex flex-col ">
+
       <div id="sidebar-top-btns" className="flex items-center flex-col gap-8">
         <HomeButton onClick={handleHome}/>
         <BellButton/>
         <ClipboardButton/>
         <CloudUploadButton/>
         <CogButton/>
-      </div>
-      <div id="sidebar-profile-btn" className="flex items-center justify-center">
+        <div className="mt-[80px]">
+
         <ProfileButton/>
+        </div>
+      </div>
+
       </div>
     </div>
   )

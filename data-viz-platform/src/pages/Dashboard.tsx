@@ -4,15 +4,16 @@ import RefreshButton from "../components/RefreshButton"
 import UploadButton from "../components/UploadButton"
 import EditVariablesButton from "../components/EditVariablesButton"
 import EditVariablesPanel from "../components/EditVariablesPanel"
+import GraphChart from "../components/GraphChart"
 
 function Dashboard() {
-  const [showMessages, setShowMessages] = useState(true)
-  const [showPanel, setShowPanel] = useState(false)
-  const messages = ["The best found configuration based on profit is characterized by 11 zones (max) with charging stations and 48 total number of poles", "The best found configuration based on satisfied demand is characterized by 11 zones (max) with charging stations and 48 total number of poles."]
+  const [showMessages, setShowMessages] = useState(true);
+  const [showPanel, setShowPanel] = useState(false);
+  const messages = ["The best found configuration based on profit is characterized by 11 zones (max) with charging stations and 48 total number of poles", "The best found configuration based on satisfied demand is characterized by 11 zones (max) with charging stations and 48 total number of poles."];
 
   const handleRefresh = () =>{
-    window.location.reload()
-  }
+    window.location.reload();
+  };
 
   const handleUpload = () =>{
     // upload logic
@@ -22,15 +23,11 @@ function Dashboard() {
     setShowMessages(((prev:boolean) => !prev))
   }
 
-  const handlePanelSlideOver = () => {
-    setShowPanel(((prev:boolean) =>!prev))
-    EditVariablesPanel()
-  }
 
   return (
     <>
     {/*Dashboard top header*/}
-    <div className="bg-[#161618] text-white pr-8 pl-8 pt-10 pb-10 h-screen">
+    <div className="bg-[#161618] text-white pr-8 pl-8 pt-10 pb-10 h-full">
       <div id="charging-station-wrapper" className="flex justify-between pb-8">
         <div className="flex items-center">
           <div className="ml-1">{<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6"><path fillRule="evenodd" d="M14.615 1.595a.75.75 0 0 1 .359.852L12.982 9.75h7.268a.75.75 0 0 1 .548 1.262l-10.5 11.25a.75.75 0 0 1-1.272-.71l1.992-7.302H3.75a.75.75 0 0 1-.548-1.262l10.5-11.25a.75.75 0 0 1 .913-.143Z" clipRule="evenodd" /></svg>}</div>
@@ -38,7 +35,11 @@ function Dashboard() {
         </div>
         <div id="charging-station-btns" className="flex gap-3">
           <RefreshButton onClick={handleRefresh}/>
-          <EditVariablesButton onClick={handlePanelSlideOver}/>
+          <EditVariablesButton onClick={() =>setShowPanel(true)}/>
+          <EditVariablesPanel
+          isOpen={showPanel}
+          onClose={() =>setShowPanel(false)}
+          />
           <UploadButton onClick={handleUpload}/>
           </div>
       </div>
@@ -85,7 +86,7 @@ function Dashboard() {
             {/* Graph content section */}
             <div id="card-wrapper" className="flex gap-4 justify-between">
             <div className="w-[660px] bg-[#222324] rounded-md flex border border-[#424242] shadow-[5px_3px_5px_1px_rgb(10,10,12,.35)]">
-              <div className="">Graph Card Content</div>
+              <GraphChart/>
             </div>
 
             {/* KPI content section */}

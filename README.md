@@ -39,7 +39,7 @@ VITE_FIREBASE_APP_ID=your_app_id
 
 - Vite + React(TS) for fast HMR and type safety
 - Tailwind CSS for utility-first styling and quick interaction
-- Redux Toolkit for lightweight Global state of variables
+- Zustand for lightweight Global state of variables
 - Recharts for customizable charting with built-in animations
   - trade-off: Less low-level control than D3, but faster to implement
 - React Router for client-side routing
@@ -59,3 +59,7 @@ VITE_FIREBASE_APP_ID=your_app_id
 - Run `npm run dev` and go to `http://localhost:3000`
 - Run `npm run build` to build for production
 - Run `npm install -g serve serve dist` to serve the build locally for testing
+
+## Time spent
+
+- ~15 hours (across evenings and weekends)

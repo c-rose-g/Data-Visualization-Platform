@@ -5,6 +5,7 @@ import UploadButton from "../components/UploadButton"
 import EditVariablesButton from "../components/EditVariablesButton"
 import EditVariablesPanel from "../components/EditVariablesPanel"
 import GraphChart from "../components/GraphChart"
+import { graphData } from "../data/GraphData"
 
 function Dashboard() {
   const [showMessages, setShowMessages] = useState(true);
@@ -27,8 +28,8 @@ function Dashboard() {
   return (
     <>
     {/*Dashboard top header*/}
-    <div className="bg-[#161618] text-white pr-8 pl-8 pt-10 pb-10 h-full">
-      <div id="charging-station-wrapper" className="flex justify-between pb-8">
+    <div className="bg-[#161618] text-white pr-8 pl-8  flex-1 border border-[rgba(82, 82, 82, 1)] rounded-md">
+      <div id="charging-station-wrapper" className="flex justify-between">
         <div className="flex items-center">
           <div className="ml-1">{<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6"><path fillRule="evenodd" d="M14.615 1.595a.75.75 0 0 1 .359.852L12.982 9.75h7.268a.75.75 0 0 1 .548 1.262l-10.5 11.25a.75.75 0 0 1-1.272-.71l1.992-7.302H3.75a.75.75 0 0 1-.548-1.262l10.5-11.25a.75.75 0 0 1 .913-.143Z" clipRule="evenodd" /></svg>}</div>
           <h2 className="ml-2 font-roobert font-bold text-[30px]">Charging Station</h2>
@@ -47,7 +48,7 @@ function Dashboard() {
       {/* Scenario Results */}
       <div id="scenario-results-wrapper">
           <div id="results-messages" className="">
-            <div className="flex justify-between items-start pb-4">
+            <div className="flex justify-between items-start ">
               <div className=" flex items-center text-[#DCFF7FFD] ">
                 <div className="ml-1 mr-2">
                   {<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="size-4">
@@ -60,18 +61,18 @@ function Dashboard() {
               </div>
               {showMessages && (
                 messages.map((m, idx) => (
-                  <div className="flex justify-between border text-[#C9FF3B] border-[#C8E972] rounded-md bg-[#1a1b18] p-4 items-end mb-3" key={idx}>
+                  <div className="flex justify-between border text-[#C9FF3B] border-[#C8E972] rounded-md bg-[#1a1b18] p-4 items-end " key={idx}>
                     <div className="text-[12px]">{m}</div>
                     <button className="text-[14px] font-bold" type="button">...</button>
                   </div>
                 )))}
           </div>
           {/* Graphs and KPI header */}
-          <div id="subheading" className=" flex justify-between mt-10 ">
+          <div id="subheading" className=" flex justify-between  ">
               <div className="">
                 <h3 className="font-semibold text-2xl -ml-1">Graphs</h3>
               </div>
-              <div id="kpi-heading" className="flex items-center pb-2">
+              <div id="kpi-heading" className="flex items-center ">
                   <h2 className="font-roobert text-2xl text-[#FDFDFD] mr-10">Key Performance Indicators</h2>
                   <div className="flex -mr-2">
                     <button type="button" className="flex items-center border border-[#5A5A5A] text-white text-sm rounded-sm ml-6 p-1">Variables
@@ -85,8 +86,8 @@ function Dashboard() {
             </div>
             {/* Graph content section */}
             <div id="card-wrapper" className="flex gap-4 justify-between">
-            <div className="w-[660px] bg-[#222324] rounded-md flex border border-[#424242] shadow-[5px_3px_5px_1px_rgb(10,10,12,.35)]">
-              <GraphChart/>
+            <div className="bg-[#222324] rounded-md flex border border-[#424242] shadow-[5px_3px_5px_1px_rgb(10,10,12,.35)]">
+              <GraphChart data={graphData}/>
             </div>
 
             {/* KPI content section */}

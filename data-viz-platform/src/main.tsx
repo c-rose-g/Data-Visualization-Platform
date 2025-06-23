@@ -13,7 +13,7 @@ ReactDOM.createRoot(root as HTMLElement).render(
       <BrowserRouter>
         <Layout>
           <Routes>
-            <Route path="/login" element={<Login/>} />
+            <Route path="/" element={<Login/>} />
             <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </Layout>

@@ -9,6 +9,7 @@ export default {
       fontFamily: {
         satoshi: ['"Satoshi"', 'sans-serif'],  
         roobert: ['"RoobertTrial"', 'sans-serif'],
+        inter:['"inter"', 'sans-serif']
       },
     },
   },

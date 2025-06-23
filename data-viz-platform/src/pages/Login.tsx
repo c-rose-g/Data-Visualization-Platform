@@ -9,7 +9,7 @@ function Login() {
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
   const [errorCode, setErrorCode] = useState("")
-  
+
   // sign in with email/password
   const emailLogin = async (e:React.FormEvent) =>{
     e.preventDefault()
@@ -34,10 +34,13 @@ function Login() {
   }
 
   return (
-    <div className="">
-      <h1>Login</h1>
+    <div className="flex flex-col items-center gap-6 mt-[50px]">
+      <h1 className="font-bold text-2xl">Login</h1>
+
       <form onClick={emailLogin}>
-        <div>
+        <div className="flex flex-col items-end gap-4 text-xl">
+          <div className="">
+
           <label>Email:</label>
           <input
           type="email"
@@ -46,7 +49,11 @@ function Login() {
           onChange={e => setEmail(e.target.value)}
           required
           placeholder="Enter your email"
+          className="bg-[#181819] text-white"
           />
+          </div>
+          <div>
+            <label>Password:</label>
           <input
           type="password"
           id="password"
@@ -54,11 +61,14 @@ function Login() {
           onChange={e => setPassword(e.target.value)}
           required
           placeholder="Enter your password"
+          className="bg-[#181819] text-white"
           />
-          <button type="submit">Login</button>
+          </div>
+        </div>
+          <div className="flex flex-col text-xl mt-10">
           <button type="button" onClick={googleAuthentication}>Sign in with Google</button>
           {error && <p>{error}{errorCode}</p>}
-        </div>
+          </div>
       </form>
     </div>
   )

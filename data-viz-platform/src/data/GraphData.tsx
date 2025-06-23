@@ -1,6 +1,6 @@
 export type DataPoint = {
- month: string
- value: number
+ month: string;
+ value: number;
 }
 export const graphData: DataPoint[] =[
  { month: 'Apr', value: 40 },

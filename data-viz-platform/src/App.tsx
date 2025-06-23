@@ -2,9 +2,9 @@
 function App() {
 
   return (
-    <div className="flex h-screen">
+    <div className="">
 
-      <div className="flex-1 flex flex-col">
+      <div className="">
 
       </div>
     </div>

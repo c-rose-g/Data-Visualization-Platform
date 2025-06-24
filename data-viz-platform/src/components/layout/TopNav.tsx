@@ -8,7 +8,7 @@ type HamburgerButtonProp = {
 
 export default function TopNav({sidebarOpen, onHamburgerClick }:HamburgerButtonProp) {
   return (
-    <header className="flex items-center h-20 bg-[#0d0d0d] text-white  pl-[30px] -ml-[80px]">
+    <header className="flex items-center h-20 bg-[#0d0d0d] text-white  pl-[30px] pt-5 pb-5  -ml-[80px]">
       <HamburgerButton
       onClick={onHamburgerClick}
       aria-expanded={sidebarOpen}

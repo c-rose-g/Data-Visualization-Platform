@@ -16,16 +16,19 @@ export default function Sidebar({collapsed}:SidebarProps) {
   };
 
   return (
-    <div className=" bg-[#0d0d0d] flex flex-col ">
-      <div className="mt-[80px] pl-[24px] pr-[20px] text-white w-20 gap-8 flex flex-col ">
+    <div className=" bg-[#0d0d0d] flex flex-col">
+      <div className=" text-white w-20 ">
 
-      <div id="sidebar-top-btns" className="flex items-center flex-col gap-8">
+      <div id="sidebar-top-btns" className="flex items-center flex-col ">
+        <div className="gap-8 flex flex-col mt-[90px]  ">
+
         <HomeButton onClick={handleHome}/>
         <BellButton/>
         <ClipboardButton/>
         <CloudUploadButton/>
         <CogButton/>
-        <div className="mt-[80px]">
+        </div>
+        <div className="fixed bottom-32  ">
 
         <ProfileButton/>
         </div>

@@ -1,6 +1,6 @@
 import {useState, useMemo} from 'react'
-import { useVariablesStore } from '../store/useVariableStore'
-import type { Variable } from '../store/useVariableStore'
+import {useVariablesStore} from '../store/useVariableStore'
+import type { Variable } from "../store/useVariableStore"
 import XIcon from "../components/XIcon"
 import SearchIcon from "./SearchIcon"
 
@@ -11,20 +11,21 @@ type Props =  {
 
 
 export default function EditVariablesPanel({isOpen, onClose}: Props) {
-  const allVars = useVariablesStore(s => s.items)
+
+  const itemsVariables = useVariablesStore(s => s.items)
   const toggle = useVariablesStore(s => s.toggle)
   const [search, setSearch] = useState('')
-  const [selectedVar, setSelectedVar] = useState<Variable | null>(null)
+  const [selectedVariable, setSelectedVariable] = useState<Variable | null>(null)
 
   // category
   const categories = useMemo(() => {
     const map: Record<string, Variable[]> = {}
-    allVars.forEach(v => {
-      if (!map[v.category]) map[v.category] = []
-      map[v.category].push(v)
+    itemsVariables.forEach(x => {
+      if (!map[x.category]) map[x.category] = []
+      map[x.category].push(x)
     })
     return map
-  }, [allVars])
+  }, [itemsVariables])
 
   // filtering for search
   const filtered = useMemo(() => {
@@ -80,23 +81,16 @@ export default function EditVariablesPanel({isOpen, onClose}: Props) {
               type="text"
               value={search}
               onChange={e => setSearch(e.target.value)}
-              placeholder="Search variables…"
+              placeholder="Search"
               className="w-full pl-10 pr-3 py-2 bg-[#1A191A] border border-[#424242] rounded focus:outline-none focus:ring-2 focus:ring-lime-500 text-white text-sm placeholder-gray-500"
             />
           </div>
           <button
           type="button"
-          onClick={() => {/* TODO: autofill logic */}}
-          className="flex items-center gap-1 px-3 py-2 bg-[#272627] text-white text-sm rounded hover:bg-[#323132]"
-          >
-            Autofill
+          className="flex items-center gap-1 px-3 py-2 bg-[#272627] text-white text-sm rounded hover:bg-[#323132]">Autofill
           </button>
           <button
-          type="button"
-          onClick={() => {/* TODO: rerun logic */}}
-          className="flex items-center gap-1 px-3 py-2 bg-lime-600 text-black text-sm rounded hover:bg-lime-500"
-          >
-            Rerun
+          type="button" className="flex items-center gap-1 px-3 py-2 bg-lime-600 text-black text-sm rounded hover:bg-lime-500">Rerun
           </button>
         </div>
 
@@ -107,7 +101,7 @@ export default function EditVariablesPanel({isOpen, onClose}: Props) {
               <h3 className="text-gray-300 font-medium mb-2">{cat}</h3>
               <ul className="flex flex-wrap gap-2">
                 {vars.map(v => (<li key={v.id}>
-                    <button type="button" onClick={() => { toggle(v.id); setSelectedVar(v) }}
+                  <button type="button" onClick={() => { toggle(v.id); setSelectedVariable(v) }}
                       className={`flex items-center gap-1 px-3 py-1.5 text-sm font-medium rounded-full border transition
                         ${v.active ? 'bg-lime-600 border-lime-600 text-black': 'bg-transparent border-[#424242] text-gray-400 hover:border-lime-500 hover:text-white'}`}
                     >
@@ -120,10 +114,10 @@ export default function EditVariablesPanel({isOpen, onClose}: Props) {
           ))}
 
           {/* detail box for selected variable */}
-          {selectedVar && (
+          {selectedVariable && (
             <div className="bg-[#1A191A] border border-[#424242] rounded p-4 text-sm text-gray-300">
-              <h4 className="text-white font-semibold mb-1">{selectedVar.name}</h4>
-              <p>{selectedVar.description || 'No description available.'}</p>
+              <h4 className="text-white font-semibold mb-1">{selectedVariable.name}</h4>
+              <p>{selectedVariable.description || 'No description available.'}</p>
             </div>
           )}
 
@@ -137,7 +131,7 @@ export default function EditVariablesPanel({isOpen, onClose}: Props) {
             </summary>
             <div className="mt-3 space-y-2">
               {/* map over primary vars here */}
-              {allVars
+              {itemsVariables
                 .filter(v => v.isPrimary)
                 .map(v => (
                   <label key={v.id} className="flex items-center gap-2 text-gray-400">
@@ -161,7 +155,7 @@ export default function EditVariablesPanel({isOpen, onClose}: Props) {
               </span>
             </summary>
             <div className="mt-3 space-y-2">
-              {allVars
+              {itemsVariables
                 .filter(v => !v.isPrimary)
                 .map(v => (
                   <label key={v.id} className="flex items-center gap-2 text-gray-400">

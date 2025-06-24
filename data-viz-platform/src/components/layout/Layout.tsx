@@ -11,7 +11,7 @@ export default function Layout({children}:LayoutProps) {
   const [open, setOpen] = useState(true)
 
   return(
-  <div className="flex flex-1 bg-[#0f0f0f] text-white h-screen overflow-auto border rounded-md">
+  <div className="flex bg-[#161618] text-white h-screen  ">
     {/* Sidebar menu collapse */}
     <Sidebar collapsed={!open} />
 
@@ -22,7 +22,7 @@ export default function Layout({children}:LayoutProps) {
         onHamburgerClick={() =>setOpen(open => !open)}
         />
         {/* main content */}
-        <main className="flex-1 ">{children}</main>
+        <main className="">{children}</main>
       </div>
       </div>
   )

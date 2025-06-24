@@ -1,5 +1,4 @@
 import {useState} from 'react'
-import { useVariablesStore } from "../store/useVariableStore"
 import CaretButton from '../components/CaretButton'
 import RefreshButton from "../components/RefreshButton"
 import UploadButton from "../components/UploadButton"
@@ -31,8 +30,8 @@ function Dashboard() {
   return (
     <>
     {/*Dashboard top header*/}
-    <div className="bg-[#161618] text-white pr-8 pl-8  flex-1 border border-[rgba(82, 82, 82, 1)] rounded-md">
-      <div id="charging-station-wrapper" className="flex justify-between">
+    <div className="bg-[#161618] text-white pr-20 pl-20 rounded-md mt-20">
+      <div id="charging-station-wrapper" className="flex justify-between ">
         <div className="flex items-center">
           <div className="ml-1">{<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6"><path fillRule="evenodd" d="M14.615 1.595a.75.75 0 0 1 .359.852L12.982 9.75h7.268a.75.75 0 0 1 .548 1.262l-10.5 11.25a.75.75 0 0 1-1.272-.71l1.992-7.302H3.75a.75.75 0 0 1-.548-1.262l10.5-11.25a.75.75 0 0 1 .913-.143Z" clipRule="evenodd" /></svg>}</div>
           <h2 className="ml-2 font-roobert font-bold text-[30px]">Charging Station</h2>
@@ -49,9 +48,9 @@ function Dashboard() {
       </div>
 
       {/* Scenario Results */}
-      <div id="scenario-results-wrapper">
+      <div id="scenario-results-wrapper" className="mt-20">
           <div id="results-messages" className="">
-            <div className="flex justify-between items-start ">
+            <div className="flex justify-between items-start mb-5">
               <div className=" flex items-center text-[#DCFF7FFD] ">
                 <div className="ml-1 mr-2">
                   {<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="size-4">
@@ -64,14 +63,14 @@ function Dashboard() {
               </div>
               {showMessages && (
                 messages.map((m, idx) => (
-                  <div className="flex justify-between border text-[#C9FF3B] border-[#C8E972] rounded-md bg-[#1a1b18] p-4 items-end " key={idx}>
+                  <div className="flex justify-between border text-[#C9FF3B] border-[#C8E972] rounded-md bg-[#1a1b18] p-4 items-end mb-10" key={idx}>
                     <div className="text-[12px]">{m}</div>
                     <button className="text-[14px] font-bold" type="button">...</button>
                   </div>
                 )))}
           </div>
           {/* Graphs and KPI header */}
-          <div id="subheading" className=" flex justify-between">
+          <div id="subheading" className=" flex justify-between mt-40">
               <div className="">
                 <h3 className="font-semibold text-2xl ">Graphs</h3>
               </div>
@@ -88,10 +87,10 @@ function Dashboard() {
               </div>
             </div>
             {/* Graph content section */}
-            <div id='card-wrapper' className="flex justify-between">
+            <div id='card-wrapper' className="flex justify-between mt-8 mb-50 pb-20 items-end">
 
               {/* Graph column */}
-              <div className="w-[504px] ">
+              <div className="">
                 <GraphChart data={graphData} />
               </div>
 

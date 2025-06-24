@@ -6,10 +6,10 @@ import UploadButton from "../components/UploadButton"
 import EditVariablesButton from "../components/EditVariablesButton"
 import EditVariablesPanel from "../components/EditVariablesPanel"
 import GraphChart from "../components/GraphChart"
+import KpiGrid from "../components/KpiGrid"
 import { graphData } from "../data/GraphData"
 
 function Dashboard() {
-  const {items: vars} = useVariablesStore()
 
   const [showMessages, setShowMessages] = useState(true);
   const [showPanel, setShowPanel] = useState(false);
@@ -71,12 +71,12 @@ function Dashboard() {
                 )))}
           </div>
           {/* Graphs and KPI header */}
-          <div id="subheading" className=" flex justify-between  ">
+          <div id="subheading" className=" flex justify-between">
               <div className="">
-                <h3 className="font-semibold text-2xl -ml-1">Graphs</h3>
+                <h3 className="font-semibold text-2xl ">Graphs</h3>
               </div>
-              <div id="kpi-heading" className="flex items-center ">
-                  <h2 className="font-roobert text-2xl text-[#FDFDFD] mr-10">Key Performance Indicators</h2>
+              <div id="kpi-heading" className="flex items-center mr-24">
+                  <h2 className="font-roobert text-2xl text-[#FDFDFD] ">Key Performance Indicators</h2>
                   <div className="flex -mr-2">
                     <button type="button" className="flex items-center border border-[#5A5A5A] text-white text-sm rounded-sm ml-6 p-1">Variables
                       {<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="size-5 ml-2">
@@ -88,22 +88,16 @@ function Dashboard() {
               </div>
             </div>
             {/* Graph content section */}
-            <div id="card-wrapper" className="flex gap-4 justify-between">
-            <div className="bg-[#222324] rounded-md flex border border-[#424242] shadow-[5px_3px_5px_1px_rgb(10,10,12,.35)]">
-              <GraphChart data={graphData}/>
-            </div>
+            <div id='card-wrapper' className="flex justify-between">
 
-            {/* KPI content section */}
-            <div id="kpi-cards" className="grid grid-cols-2 grid-rows-2 gap-7">
-              {['Card 1', 'Card 2', 'Card 3', 'Card 4'].map((label, idx) => (
-                <div className="grid shadow-[5px_3px_5px_1px_rgb(10,10,12,.35)]">
-                <div key={idx} className="bg-[#222324] border border-[#424242] rounded-md w-56">
-                  {label}
-                </div>
-                </div>
-              ))}
+              {/* Graph column */}
+              <div className="w-[504px] ">
+                <GraphChart data={graphData} />
+              </div>
+
+              {/* kpi card */}
+                <KpiGrid />
             </div>
-          </div>
       </div>
     </div>
     </>

@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import { useVariablesStore } from "../store/useVariableStore"
 import CaretButton from '../components/CaretButton'
 import RefreshButton from "../components/RefreshButton"
 import UploadButton from "../components/UploadButton"
@@ -8,6 +9,8 @@ import GraphChart from "../components/GraphChart"
 import { graphData } from "../data/GraphData"
 
 function Dashboard() {
+  const {items: vars} = useVariablesStore()
+
   const [showMessages, setShowMessages] = useState(true);
   const [showPanel, setShowPanel] = useState(false);
   const messages = ["The best found configuration based on profit is characterized by 11 zones (max) with charging stations and 48 total number of poles", "The best found configuration based on satisfied demand is characterized by 11 zones (max) with charging stations and 48 total number of poles."];
@@ -57,7 +60,7 @@ function Dashboard() {
                   </div>
                   <h2 className="font-roobert text-[20px] ">Best Scenario Results</h2>
               </div>
-              <CaretButton onClick={handleMessages}  className={` ${showMessages ? 'rotate-180' : 'rotate-0'}`}/>
+              <CaretButton onClick={handleMessages}  className={`pl-2 pr-2  pt-1 pb-1 border border-[#C8E972] text-[#C8E972] ml-80  hover:bg-gray-700 rounded-full transform transition-transform   ${showMessages ? 'rotate-180' : 'rotate-0'}`}/>
               </div>
               {showMessages && (
                 messages.map((m, idx) => (

@@ -23,7 +23,7 @@ function CustomCursor({ points }: any) {
 export default function GraphChart({data}:{data: DataPoint[]}) {
 
   return (
-    <div className="w-[660px] h-[380px] bg-[#222324] border border-[#424242] rounded p-4 shadow-[0_0_4px_rgba(0,0,0,0.25)]">
+    <div className="w-[800px] h-[460px] bg-[#222324] border border-[#424242] rounded p-4 shadow-[0_0_4px_rgba(0,0,0,0.25)]">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
           data={data}

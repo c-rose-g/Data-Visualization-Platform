@@ -75,7 +75,7 @@ export default function EditVariablesPanel({isOpen, onClose}: Props) {
 
         {/* search + actions */}
         <div className="flex items-center gap-2 px-6 py-3 border-b border-[#5A5A5A]">
-          <div className="relative flex-1">
+          <div className="relative ">
             <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
             <input
               type="text"
